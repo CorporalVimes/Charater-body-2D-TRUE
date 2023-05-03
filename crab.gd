@@ -87,6 +87,8 @@ func _on_enemy__death_push():
 	await $stomp_timer.timeout
 	pass # Replace with function body.
 
+func _death():
+	print("dead lol")
 
 func _on_enemy__attack():
 	health-=1

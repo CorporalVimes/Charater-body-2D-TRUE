@@ -15,7 +15,7 @@ spawn_location = Vector2(400, 480)
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
-position = Vector2(880, 560)
+position = Vector2(720, 560)
 
 [node name="Crab" parent="." instance=ExtResource("2_u4fb6")]
 position = Vector2(320, 560)
@@ -134,7 +134,7 @@ position = Vector2(2760, 680)
 position = Vector2(2840, 680)
 
 [node name="Breakable Block" parent="." instance=ExtResource("5_2ulqy")]
-position = Vector2(1040, 320)
+position = Vector2(1000, 282)
 
 [connection signal="start_game" from="HUD" to="." method="start_game"]
 [connection signal="_attack" from="Enemy" to="Crab" method="_on_enemy__attack"]
