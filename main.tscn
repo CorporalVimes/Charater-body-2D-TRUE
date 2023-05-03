@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfr1gor2j6mkp"]
+
+[ext_resource type="Texture2D" uid="uid://dbiiaws585ydt" path="res://art/NONAGON INFINITY.png" id="1_nngjq"]
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nngjq")
+expand_mode = 1

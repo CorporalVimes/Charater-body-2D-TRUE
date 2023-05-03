@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtkhdmbh0ksfu"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_5e8ta"]
+
+[sub_resource type="Theme" id="Theme_6epdl"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_5e8ta")
+
+[node name="score" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 104.0
+theme = SubResource("Theme_6epdl")
+theme_override_font_sizes/font_size = 44
+text = "0"
+
+[node name="messageLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -180.0
+offset_right = 164.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6epdl")
+theme_override_font_sizes/font_size = 67
+text = "Super Mario Re-Programed"
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 80.0
+offset_right = 85.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6epdl")
+theme_override_font_sizes/font_size = 67
+text = "Start"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

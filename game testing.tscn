@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddi6i0nu0iess"]
+
+[ext_resource type="Script" path="res://game testing.gd" id="1_lvqhk"]
+[ext_resource type="PackedScene" uid="uid://cyj4w32mvac5t" path="res://floor.tscn" id="1_t2nc8"]
+[ext_resource type="PackedScene" uid="uid://bdjrd8k5epgjq" path="res://crab.tscn" id="2_u4fb6"]
+[ext_resource type="PackedScene" uid="uid://bddkjm0ol6uv2" path="res://breakable_block.tscn" id="5_2ulqy"]
+[ext_resource type="PackedScene" uid="uid://dtkhdmbh0ksfu" path="res://hud.tscn" id="5_r8tya"]
+[ext_resource type="PackedScene" uid="uid://bysj07ybjl18t" path="res://enemy.tscn" id="6_pufpo"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lvqhk")
+Crab_scene = ExtResource("2_u4fb6")
+spawn_location = Vector2(400, 480)
+
+[node name="HUD" parent="." instance=ExtResource("5_r8tya")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
+position = Vector2(880, 560)
+
+[node name="Crab" parent="." instance=ExtResource("2_u4fb6")]
+position = Vector2(320, 560)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="floor container" type="Node2D" parent="."]
+
+[node name="floor" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(40, 680)
+
+[node name="floor2" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(120, 680)
+
+[node name="floor3" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(200, 680)
+
+[node name="floor4" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(280, 680)
+
+[node name="floor5" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(360, 680)
+
+[node name="floor6" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(440, 680)
+
+[node name="floor7" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(520, 680)
+
+[node name="floor8" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(600, 680)
+
+[node name="floor9" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(680, 680)
+
+[node name="floor10" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(760, 680)
+
+[node name="floor11" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(840, 680)
+
+[node name="floor12" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(920, 680)
+
+[node name="floor13" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1000, 680)
+
+[node name="floor14" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1080, 680)
+
+[node name="floor15" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1160, 680)
+
+[node name="floor16" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1240, 680)
+
+[node name="floor17" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1320, 680)
+
+[node name="floor18" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1400, 680)
+
+[node name="floor19" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1480, 680)
+
+[node name="floor20" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1560, 680)
+
+[node name="floor21" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1640, 680)
+
+[node name="floor22" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1720, 680)
+
+[node name="floor23" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1800, 680)
+
+[node name="floor24" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1880, 680)
+
+[node name="floor25" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(1960, 680)
+
+[node name="floor26" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2040, 680)
+
+[node name="floor27" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2120, 680)
+
+[node name="floor28" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2200, 680)
+
+[node name="floor29" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2280, 680)
+
+[node name="floor30" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2360, 680)
+
+[node name="floor31" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2440, 680)
+
+[node name="floor32" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2520, 680)
+
+[node name="floor33" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2600, 680)
+
+[node name="floor34" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2680, 680)
+
+[node name="floor35" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2760, 680)
+
+[node name="floor36" parent="floor container" instance=ExtResource("1_t2nc8")]
+position = Vector2(2840, 680)
+
+[node name="Breakable Block" parent="." instance=ExtResource("5_2ulqy")]
+position = Vector2(1040, 320)
+
+[connection signal="start_game" from="HUD" to="." method="start_game"]
+[connection signal="_attack" from="Enemy" to="Crab" method="_on_enemy__attack"]
+[connection signal="_death_push" from="Enemy" to="Crab" method="_on_enemy__death_push"]
+[connection signal="send_score" from="Enemy" to="." method="send_score"]

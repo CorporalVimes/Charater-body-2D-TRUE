@@ -1,0 +1,178 @@
+[gd_scene load_steps=30 format=3 uid="uid://bdjrd8k5epgjq"]
+
+[ext_resource type="Script" path="res://crab.gd" id="1_t0fkg"]
+[ext_resource type="Texture2D" uid="uid://djmonnj3tggvt" path="res://art/landing anim/frame_00001.png" id="2_fnfcl"]
+[ext_resource type="Texture2D" uid="uid://dweildskcs6eg" path="res://art/landing anim/frame_00002.png" id="3_0hso5"]
+[ext_resource type="Texture2D" uid="uid://ckqpfs54ybgye" path="res://art/landing anim/frame_00003.png" id="4_lh4r8"]
+[ext_resource type="Texture2D" uid="uid://c7q5yaekg5t8f" path="res://art/landing anim/frame_00004.png" id="5_a0ful"]
+[ext_resource type="Texture2D" uid="uid://bngl33x2advo8" path="res://art/landing anim/frame_00005.png" id="6_ostwj"]
+[ext_resource type="Texture2D" uid="uid://cfodkmusycs6t" path="res://art/landing anim/frame_00006.png" id="7_w4snr"]
+[ext_resource type="Texture2D" uid="uid://sikbu3xpv8qg" path="res://art/landing anim/frame_00007.png" id="8_yw578"]
+[ext_resource type="Texture2D" uid="uid://50eocs68q4sq" path="res://art/landing anim/frame_00008.png" id="9_7cwsh"]
+[ext_resource type="Texture2D" uid="uid://cxavys76bcdky" path="res://art/landing anim/frame_00009.png" id="10_vs0p0"]
+[ext_resource type="Texture2D" uid="uid://briymag7up77" path="res://art/Tanner animations/frame_00004.png" id="11_ha4ey"]
+[ext_resource type="Texture2D" uid="uid://ui6o2r6cinsh" path="res://art/HeFall/frame_00001.png" id="12_0uebx"]
+[ext_resource type="Texture2D" uid="uid://curaue7fobyja" path="res://art/HeFall/frame_00002.png" id="13_0wqd3"]
+[ext_resource type="Texture2D" uid="uid://2vkwhder0pa3" path="res://art/HeFall/frame_00003.png" id="14_hytw6"]
+[ext_resource type="Texture2D" uid="uid://1b3jbuyecb5r" path="res://art/HeFall/frame_00004.png" id="15_r56or"]
+[ext_resource type="Texture2D" uid="uid://vmbpihbd8pjy" path="res://art/HeFall/frame_00005.png" id="16_fqyja"]
+[ext_resource type="Texture2D" uid="uid://dyi3y4ttkqplj" path="res://art/HeFall/frame_00006.png" id="17_2ienp"]
+[ext_resource type="Texture2D" uid="uid://blhra4yk85ya1" path="res://art/HeFall/frame_00007.png" id="18_lhi77"]
+[ext_resource type="Texture2D" uid="uid://dp648jxdet5xj" path="res://art/HeFall/frame_00008.png" id="19_3115w"]
+[ext_resource type="Texture2D" uid="uid://be3m4njm2f7m0" path="res://art/Tanner animations/frame_00002.png" id="20_h3ekb"]
+[ext_resource type="Texture2D" uid="uid://c0fmj4lbpr3q7" path="res://art/Tanner animations/frame_00001.png" id="21_waxqt"]
+[ext_resource type="Texture2D" uid="uid://ci2w6u3my1qpt" path="res://art/Tanner animations/frame_stomp.png" id="22_1xqm8"]
+[ext_resource type="Texture2D" uid="uid://boid0ftw1j2cq" path="res://art/Tanner animations/frame_00005.png" id="23_by7oe"]
+[ext_resource type="Texture2D" uid="uid://cb72agbfmajhr" path="res://art/Tanner animations/frame_00006.png" id="24_4kv3o"]
+[ext_resource type="Texture2D" uid="uid://b7m0k240bgw8c" path="res://art/Tanner animations/frame_00007.png" id="25_2ildt"]
+[ext_resource type="Texture2D" uid="uid://hkumnks2hc80" path="res://art/Tanner animations/frame_00008.png" id="26_r45rv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mj8gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fnfcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0hso5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lh4r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a0ful")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ostwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w4snr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yw578")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7cwsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vs0p0")
+}],
+"loop": true,
+"name": &"Landing",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ha4ey")
+}],
+"loop": true,
+"name": &"Squished",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_0uebx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0wqd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hytw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_r56or")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fqyja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2ienp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lhi77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3115w")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_h3ekb")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_waxqt")
+}],
+"loop": true,
+"name": &"neutral",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_1xqm8")
+}],
+"loop": true,
+"name": &"stomp",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_by7oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4kv3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_2ildt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_r45rv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8uku"]
+size = Vector2(83.9597, 127.106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_didjg"]
+size = Vector2(64.8138, 4.35768)
+
+[node name="Crab" type="CharacterBody2D"]
+scale = Vector2(0.952838, 1.25879)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_t0fkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.573)
+scale = Vector2(0.247126, 0.196683)
+sprite_frames = SubResource("SpriteFrames_mj8gr")
+animation = &"Landing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.00439e-06, 2.27284e-06)
+shape = SubResource("RectangleShape2D_n8uku")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.647699, 0.911458)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -71.9057)
+shape = SubResource("RectangleShape2D_didjg")
+debug_color = Color(0.956863, 0.137255, 0.392157, 0.419608)
+
+[node name="stomp_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
