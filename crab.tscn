@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bdjrd8k5epgjq"]
+[gd_scene load_steps=33 format=3 uid="uid://bdjrd8k5epgjq"]
 
 [ext_resource type="Script" path="res://crab.gd" id="1_t0fkg"]
 [ext_resource type="Texture2D" uid="uid://djmonnj3tggvt" path="res://art/landing anim/frame_00001.png" id="2_fnfcl"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dp648jxdet5xj" path="res://art/HeFall/frame_00008.png" id="19_3115w"]
 [ext_resource type="Texture2D" uid="uid://be3m4njm2f7m0" path="res://art/Tanner animations/frame_00002.png" id="20_h3ekb"]
 [ext_resource type="Texture2D" uid="uid://p0hi3qqouayl" path="res://art/Tanner animations/IMG_6911.png" id="20_xnfab"]
+[ext_resource type="Texture2D" uid="uid://c11ewck57jh0s" path="res://art/Tanner animations/IMG_6915.png" id="21_88ja3"]
 [ext_resource type="Texture2D" uid="uid://c0fmj4lbpr3q7" path="res://art/Tanner animations/frame_00001.png" id="21_waxqt"]
 [ext_resource type="Texture2D" uid="uid://ci2w6u3my1qpt" path="res://art/Tanner animations/frame_stomp.png" id="22_1xqm8"]
 [ext_resource type="Texture2D" uid="uid://boid0ftw1j2cq" path="res://art/Tanner animations/frame_00005.png" id="23_by7oe"]
@@ -102,10 +103,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("20_xnfab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_88ja3")
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 5.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,

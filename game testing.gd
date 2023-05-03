@@ -22,8 +22,6 @@ func _process(delta):
 	
 	$Crab.position.x = clamp($Crab.position.x,hMin,hMax)
 	$Crab.position.y = clamp($Crab.position.y,vMin,vMax)
-	#print($Crab.position)
-	#print($Camera2D.position)
 	if $Crab.position.x > screen_center.x:
 		$Camera2D.position.x = $Crab.position.x - (screen_size.x/2)
 

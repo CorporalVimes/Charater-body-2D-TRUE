@@ -92,9 +92,13 @@ func _attack(direction):
 	$player_timer.start()
 	self.set_physics_process(false)
 	$AnimatedSprite2D.play("hurt")
+	velocity= Vector2(-2500,-1)
 	await $player_timer.timeout
 	self.set_physics_process(true)
-	velocity.x =-2500
+	#iewport = get_viewport()
+	#iewport.
+	
+
 	print(velocity.x)
 	pass # Replace with function body.
 
