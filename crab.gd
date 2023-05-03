@@ -37,11 +37,12 @@ func _physics_process(delta):
 		number_of_jumps = 4
 	
 	#code for makeing sure the player needs to jump to break things
-	if velocity.y < 0:
+	if velocity.y != 0:
 		$"Area2D".set_collision_layer_value(3,true)
 	else:
 		$"Area2D".set_collision_layer_value(3,false)
 	
+
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -72,24 +73,35 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _on_area_2d_area_entered(_area):
-	# only exist to make head squished when head bonked
-	print("head squished")
-	if not is_on_floor():
-		is_head_squished = true
-	pass # Replace with function body.
-
-
 func _on_enemy__death_push():
-	$stomp_timer.start()
+	$player_timer.start()
 	velocity.y = JUMP_VELOCITY
+	self.set_physics_process(false)
+	is_head_squished = false
 	$AnimatedSprite2D.set_animation("stomp")
-	await $stomp_timer.timeout
+	await $player_timer.timeout
+	self.set_physics_process(true)
 	pass # Replace with function body.
 
 func _death():
 	print("dead lol")
 
-func _on_enemy__attack():
+func _attack(direction):
+	print(velocity.x)
 	health-=1
+	$player_timer.start()
+	self.set_physics_process(false)
+	$AnimatedSprite2D.play("hurt")
+	await $player_timer.timeout
+	self.set_physics_process(true)
+	velocity.x =-2500
+	print(velocity.x)
+	pass # Replace with function body.
+
+
+func _on_head_squish_area_entered(area):
+	# only exist to make head squished when head bonked
+	print("head squished")
+	if not is_on_floor():
+		is_head_squished = true
 	pass # Replace with function body.

@@ -17,11 +17,13 @@ func _on_Timer_timeout():
 
 func _on_area_2d_area_entered(area):
 	# code to make block break
-	$AnimatedSprite2D.play("Break")
-	$Area2D/CollisionShape2D.set_deferred("disabled",true)
-	$CollisionShape2D.set_deferred("disabled",true)
-	emit_signal("send_score",score)
-	$"Break timer".start()
+	
+	if not str(area) == "headSquish:<Area2D#43855643909>":
+		$AnimatedSprite2D.play("Break")
+		$Area2D/CollisionShape2D.set_deferred("disabled",true)
+		$CollisionShape2D.set_deferred("disabled",true)
+		emit_signal("send_score",score)
+		$"Break timer".start()
 	#print("True!")
 	#print(area)
 	pass # Replace with function body.
