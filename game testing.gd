@@ -7,6 +7,7 @@ func start_game():
 	screen_size = get_viewport_rect().size
 	$Crab.set_physics_process(true)
 	$Crab.visible = true
+	$Crab.is_actionable = true
 	$Crab.position = spawn_location
 	$Camera2D.make_current()
 	$Camera2D.position_smoothing_enabled = true

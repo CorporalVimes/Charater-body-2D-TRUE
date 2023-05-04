@@ -113,6 +113,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_fnfcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0hso5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lh4r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a0ful")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ostwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w4snr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yw578")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7cwsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vs0p0")
+}],
+"loop": true,
+"name": &"hurt_pushback",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("20_h3ekb")
 }],
 "loop": true,
@@ -157,10 +189,10 @@ animations = [{
 size = Vector2(83.9597, 127.106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_didjg"]
-size = Vector2(119.906, 148.17)
+size = Vector2(119.906, 145.555)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7w6a"]
-size = Vector2(51.9798, 6.35531)
+size = Vector2(51.9798, 1.58878)
 
 [node name="Crab" type="CharacterBody2D"]
 scale = Vector2(0.952838, 1.25879)
@@ -172,7 +204,7 @@ script = ExtResource("1_t0fkg")
 position = Vector2(0, -1.573)
 scale = Vector2(0.247126, 0.196683)
 sprite_frames = SubResource("SpriteFrames_mj8gr")
-animation = &"neutral"
+animation = &"hurt_pushback"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-5.00439e-06, 2.27284e-06)
@@ -184,6 +216,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.30749)
 shape = SubResource("RectangleShape2D_didjg")
 debug_color = Color(0.956863, 0.137255, 0.392157, 0.419608)
 
@@ -196,8 +229,7 @@ collision_layer = 10
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="headSquish"]
-position = Vector2(-5.96047e-08, -66.7308)
-scale = Vector2(1, 1)
+position = Vector2(-5.96047e-08, -64.3475)
 shape = SubResource("RectangleShape2D_g7w6a")
 debug_color = Color(0, 0.615686, 0.592157, 0.419608)
 

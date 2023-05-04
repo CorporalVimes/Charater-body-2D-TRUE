@@ -9,26 +9,28 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health
 var number_of_jumps
 var is_head_squished
+@export var is_actionable = false
 
 func _ready():
 	number_of_jumps = 0
 	self.set_physics_process(false)
 	visible = false
+	is_actionable = false
 	health = 1
 	$AnimatedSprite2D.play("neutral")
 
 func _physics_process(delta):
-	
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and is_actionable:
 		velocity.y = JUMP_VELOCITY
 	# double jump code
 	# number of jumps is the number of extra jumps 
-	if Input.is_action_just_pressed("jump") and not is_on_floor():
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and is_actionable:
 		if number_of_jumps >= 1:
 			velocity.y = JUMP_VELOCITY
 			number_of_jumps -=1
@@ -47,7 +49,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move left", "move right")
-	if direction:
+	if direction and is_actionable:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -55,6 +57,12 @@ func _physics_process(delta):
 	
 
 	
+	
+	
+	
+	move_and_slide()
+
+func _process(delta):
 	#ANIMIMATIONS
 	if is_head_squished == true:
 		$AnimatedSprite2D.play("Squished")
@@ -69,9 +77,6 @@ func _physics_process(delta):
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	else:
 		$AnimatedSprite2D.play("neutral")
-	
-	
-	move_and_slide()
 
 func _on_enemy__death_push():
 	$player_timer.start()
@@ -91,10 +96,17 @@ func _attack(direction):
 	health-=1
 	$player_timer.start()
 	self.set_physics_process(false)
+	self.set_process(false)
 	$AnimatedSprite2D.play("hurt")
 	velocity= Vector2(-2500,-1)
 	await $player_timer.timeout
 	self.set_physics_process(true)
+	$AnimatedSprite2D.play("hurt_pushback")
+	$player_timer.start()
+	is_actionable = false
+	await $player_timer.timeout
+	self.set_process(true)
+	is_actionable = true
 	#iewport = get_viewport()
 	#iewport.
 	

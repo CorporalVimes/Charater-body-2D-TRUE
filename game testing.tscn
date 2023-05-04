@@ -15,7 +15,7 @@ spawn_location = Vector2(640, 282)
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
-position = Vector2(800, 560)
+position = Vector2(905, 556)
 
 [node name="Crab" parent="." instance=ExtResource("2_u4fb6")]
 position = Vector2(320, 560)
