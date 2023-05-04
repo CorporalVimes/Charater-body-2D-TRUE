@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddi6i0nu0iess"]
+[gd_scene load_steps=8 format=3 uid="uid://ddi6i0nu0iess"]
 
 [ext_resource type="Script" path="res://game testing.gd" id="1_lvqhk"]
 [ext_resource type="PackedScene" uid="uid://cyj4w32mvac5t" path="res://floor.tscn" id="1_t2nc8"]
@@ -6,19 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://bddkjm0ol6uv2" path="res://breakable_block.tscn" id="5_2ulqy"]
 [ext_resource type="PackedScene" uid="uid://dtkhdmbh0ksfu" path="res://hud.tscn" id="5_r8tya"]
 [ext_resource type="PackedScene" uid="uid://bysj07ybjl18t" path="res://enemy.tscn" id="6_pufpo"]
+[ext_resource type="PackedScene" uid="uid://c86wub3yo0lmd" path="res://spawn_point.tscn" id="7_sn51j"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lvqhk")
 Crab_scene = ExtResource("2_u4fb6")
-spawn_location = Vector2(640, 282)
 
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
 position = Vector2(1334, 545)
 
+[node name="Enemy2" parent="." instance=ExtResource("6_pufpo")]
+position = Vector2(1960, 560)
+
 [node name="Crab" parent="." instance=ExtResource("2_u4fb6")]
-position = Vector2(320, 560)
+position = Vector2(320, 520)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -44,7 +47,7 @@ position = Vector2(360, 680)
 position = Vector2(440, 680)
 
 [node name="floor7" parent="floor container" instance=ExtResource("1_t2nc8")]
-position = Vector2(520, 680)
+position = Vector2(520, 600)
 
 [node name="floor8" parent="floor container" instance=ExtResource("1_t2nc8")]
 position = Vector2(600, 680)
@@ -134,15 +137,21 @@ position = Vector2(2760, 680)
 position = Vector2(2840, 680)
 
 [node name="Breakable Block" parent="." instance=ExtResource("5_2ulqy")]
-position = Vector2(360, 282)
+position = Vector2(360, 280)
 
 [node name="Breakable Block2" parent="." instance=ExtResource("5_2ulqy")]
-position = Vector2(520, 282)
+position = Vector2(200, 280)
+
+[node name="spawn_point" parent="." instance=ExtResource("7_sn51j")]
+position = Vector2(480, 280)
 
 [connection signal="start_game" from="HUD" to="." method="start_game"]
 [connection signal="_attack" from="Enemy" to="Crab" method="_attack"]
 [connection signal="_death_push" from="Enemy" to="Crab" method="_on_enemy__death_push"]
 [connection signal="send_score" from="Enemy" to="." method="send_score"]
+[connection signal="_attack" from="Enemy2" to="Crab" method="_attack"]
+[connection signal="_death_push" from="Enemy2" to="Crab" method="_on_enemy__death_push"]
+[connection signal="send_score" from="Enemy2" to="." method="send_score"]
 [connection signal="dead" from="Crab" to="." method="_on_crab_dead"]
 [connection signal="send_score" from="Breakable Block" to="." method="send_score"]
 [connection signal="send_score" from="Breakable Block2" to="." method="send_score"]

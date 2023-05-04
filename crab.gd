@@ -26,12 +26,10 @@ func _physics_process(delta):
 	#code to disable input in certian cases like spawning
 	if is_start_fall:
 		is_actionable = false
-	else:
+	if is_on_floor_only():
 		is_actionable = true
-	
-	print(is_start_fall)
-	if is_on_floor():
 		is_start_fall = false
+	
 	
 	
 	# Add the gravity.
@@ -61,6 +59,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	
 	var direction = Input.get_axis("move left", "move right")
 	if direction and is_actionable:
 		velocity.x = direction * SPEED
@@ -100,8 +99,6 @@ func _on_enemy__death_push():
 	pass # Replace with function body.
 
 func _death():
-	print("lives:",lives)
-	print("health:",health)
 	if not lives < 0:
 		emit_signal("dead")
 	else:
