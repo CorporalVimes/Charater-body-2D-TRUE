@@ -1,14 +1,17 @@
 extends CharacterBody2D
 
-
+signal game_over
+signal dead
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health
+var lives
 var number_of_jumps
 var is_head_squished
+var is_start_fall
 @export var is_actionable = false
 
 func _ready():
@@ -16,11 +19,21 @@ func _ready():
 	self.set_physics_process(false)
 	visible = false
 	is_actionable = false
-	health = 1
 	$AnimatedSprite2D.play("neutral")
 
 func _physics_process(delta):
-
+	
+	#code to disable input in certian cases like spawning
+	if is_start_fall:
+		is_actionable = false
+	else:
+		is_actionable = true
+	
+	print(is_start_fall)
+	if is_on_floor():
+		is_start_fall = false
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -54,12 +67,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	
-
-	
-	
-	
-	
 	move_and_slide()
 
 func _process(delta):
@@ -78,6 +85,8 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.play("neutral")
 
+
+#PUSHES PLAYER AWAY AFTER KILLING EMENY
 func _on_enemy__death_push():
 	$player_timer.start()
 	velocity.y = JUMP_VELOCITY
@@ -91,24 +100,33 @@ func _on_enemy__death_push():
 	pass # Replace with function body.
 
 func _death():
-	print("dead lol")
+	print("lives:",lives)
+	print("health:",health)
+	if not lives < 0:
+		emit_signal("dead")
+	else:
+		emit_signal("game_over")
 
+#FUNC FOR WHEN PLAYER *GETS* ATTACKED
 func _attack(direction):
 	print(velocity.x)
 	health-=1
 	$player_timer.start()
 	self.set_physics_process(false)
 	self.set_process(false)
+	is_actionable = false
 	$AnimatedSprite2D.play("hurt")
 	velocity= Vector2(-2500,-1)
 	await $player_timer.timeout
-	self.set_physics_process(true)
-	$AnimatedSprite2D.play("hurt_pushback")
-	$player_timer.start()
-	is_actionable = false
-	await $player_timer.timeout
-	self.set_process(true)
-	is_actionable = true
+	if health > 0:
+		self.set_physics_process(true)
+		$AnimatedSprite2D.play("hurt_pushback")
+		$player_timer.start()
+		await $player_timer.timeout
+		self.set_process(true)
+		is_actionable = true
+	else:
+		_death()
 	#iewport = get_viewport()
 	#iewport.
 	
