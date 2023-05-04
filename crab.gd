@@ -82,10 +82,12 @@ func _on_enemy__death_push():
 	$player_timer.start()
 	velocity.y = JUMP_VELOCITY
 	self.set_physics_process(false)
+	self.set_process(false)
 	is_head_squished = false
 	$AnimatedSprite2D.set_animation("stomp")
 	await $player_timer.timeout
 	self.set_physics_process(true)
+	self.set_process(true)
 	pass # Replace with function body.
 
 func _death():
