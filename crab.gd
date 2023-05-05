@@ -19,6 +19,7 @@ func _ready():
 	self.set_physics_process(false)
 	visible = false
 	is_actionable = false
+	lives = 3
 	$AnimatedSprite2D.play("neutral")
 
 func _physics_process(delta):
@@ -26,10 +27,9 @@ func _physics_process(delta):
 	#code to disable input in certian cases like spawning
 	if is_start_fall:
 		is_actionable = false
-	if is_on_floor_only():
+	if is_on_floor_only() and is_start_fall == true:
 		is_actionable = true
 		is_start_fall = false
-	
 	
 	
 	# Add the gravity.
@@ -99,8 +99,12 @@ func _on_enemy__death_push():
 	pass # Replace with function body.
 
 func _death():
+	lives -= 1
 	if not lives < 0:
 		emit_signal("dead")
+		
+		print(lives)
+		print(health)
 	else:
 		emit_signal("game_over")
 
@@ -112,14 +116,16 @@ func _attack(direction):
 	self.set_physics_process(false)
 	self.set_process(false)
 	is_actionable = false
+	print(is_actionable," is action")
 	$AnimatedSprite2D.play("hurt")
-	velocity= Vector2(-2500,-1)
 	await $player_timer.timeout
 	if health > 0:
+		velocity= Vector2(-2500,-1)
 		self.set_physics_process(true)
 		$AnimatedSprite2D.play("hurt_pushback")
 		$player_timer.start()
 		await $player_timer.timeout
+		print(is_actionable," is action")
 		self.set_process(true)
 		is_actionable = true
 	else:

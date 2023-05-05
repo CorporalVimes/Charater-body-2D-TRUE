@@ -13,6 +13,7 @@ func show_message(text):
 	$messageLabel.show()
 
 func game_over():
+	$messageLabel.show()
 	$messageLabel.text = "game over"
 
 
