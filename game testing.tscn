@@ -15,16 +15,16 @@ Crab_scene = ExtResource("2_u4fb6")
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
-position = Vector2(1480, 560)
+position = Vector2(320, 520)
 
 [node name="Enemy2" parent="." instance=ExtResource("6_pufpo")]
-position = Vector2(1960, 560)
+position = Vector2(920, 560)
 
 [node name="Enemy3" parent="." instance=ExtResource("6_pufpo")]
 position = Vector2(3880, 560)
 
 [node name="Crab" parent="." instance=ExtResource("2_u4fb6")]
-position = Vector2(320, 520)
+position = Vector2(480, 160)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

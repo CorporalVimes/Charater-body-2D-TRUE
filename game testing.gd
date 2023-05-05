@@ -3,7 +3,7 @@ extends Node2D
 var screen_center = Vector2.ZERO
 var screen_size = Vector2.ZERO
 var _should_clamp = false
-var defalt_health = 1
+var defalt_health = 2
 func start_game():
 	screen_size = get_viewport_rect().size
 	$Crab.set_physics_process(true)
@@ -24,13 +24,10 @@ func start_game():
 
 func _process(delta):
 	screen_center = $Camera2D.get_screen_center_position()
-	var vMax = screen_center.y + (screen_size.y/2)
-	var vMin = screen_center.y - (screen_size.y/2)
 	var hMax = screen_center.x + (screen_size.x/2)
 	var hMin = screen_center.x - (screen_size.x/2)
 	if _should_clamp:
 		$Crab.position.x = clamp($Crab.position.x,hMin,hMax)
-		$Crab.position.y = clamp($Crab.position.y,vMin,vMax)
 		if $Crab.position.x > screen_center.x:
 			$Camera2D.position.x = $Crab.position.x - (screen_size.x/2)
 

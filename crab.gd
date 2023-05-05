@@ -109,8 +109,10 @@ func _death():
 		emit_signal("game_over")
 
 #FUNC FOR WHEN PLAYER *GETS* ATTACKED
-func _attack(direction):
+func _attack():
 	print(velocity.x)
+	var directionX = velocity.x/abs(velocity.x)
+	print(directionX," direction")
 	health-=1
 	$player_timer.start()
 	self.set_physics_process(false)
@@ -120,7 +122,7 @@ func _attack(direction):
 	$AnimatedSprite2D.play("hurt")
 	await $player_timer.timeout
 	if health > 0:
-		velocity= Vector2(-2500,-1)
+		velocity= Vector2(-2500 * directionX,-1)
 		self.set_physics_process(true)
 		$AnimatedSprite2D.play("hurt_pushback")
 		$player_timer.start()

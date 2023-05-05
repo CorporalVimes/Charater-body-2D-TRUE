@@ -18,7 +18,7 @@ func _on_attack_body_entered(body):
 	print(body)
 	$mob_Timer.start()
 	$AnimatedSprite2D.play("attack")
-	emit_signal("_attack",direction)
+	emit_signal("_attack")
 	$hit/CollisionShape2D.set_deferred("disabled",true)
 	await $mob_Timer.timeout
 	$hit/CollisionShape2D.set_deferred("disabled",false)
