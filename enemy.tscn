@@ -116,7 +116,7 @@ animations = [{
 size = Vector2(80, 144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w1ih6"]
-size = Vector2(128, 51.625)
+size = Vector2(112, 51.625)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75yrf"]
 size = Vector2(120, 80)
@@ -135,7 +135,7 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_tfmp3")
 
 [node name="hit" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
@@ -156,10 +156,5 @@ debug_color = Color(0.929412, 0, 0.654902, 0.419608)
 wait_time = 0.75
 one_shot = true
 
-[node name="walk_timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
 [connection signal="area_entered" from="hit" to="." method="_on_hit_area_entered"]
 [connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
-[connection signal="timeout" from="walk_timer" to="." method="_on_walk_timer_timeout"]

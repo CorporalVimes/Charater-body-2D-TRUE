@@ -3,21 +3,15 @@ extends Node2D
 var screen_center = Vector2.ZERO
 var screen_size = Vector2.ZERO
 var _should_clamp = false
-var defalt_health = 2
+
 func start_game():
 	screen_size = get_viewport_rect().size
-	$Crab.set_physics_process(true)
-	$Crab.set_process(true)
-	$Crab.visible = true
-	$Crab.set_deferred("is_actionable",true)
-	$Crab.set_deferred("health", defalt_health)
-	$Crab.set_deferred("lives", 3)
+	$Crab.call_deferred("_start_game")
 	$Crab.position = $spawn_point.position
+	$Crab.set_deferred("lives", 3)
 	$Camera2D.make_current()
 	$Camera2D.position_smoothing_enabled = true
 	$Camera2D.position = Vector2.ZERO
-	$Crab/AnimatedSprite2D.play("neutral")
-	$Crab.set_deferred("is_start_fall", true)
 	_should_clamp = true
 	print($Crab.position)
 	
@@ -40,14 +34,8 @@ func send_score(score):
 
 
 func _reset_game():
-	$Crab.set_deferred("health", defalt_health)
-	$Crab.set_physics_process(true)
-	$Crab.set_process(true)
-	$Crab.visible = true
-	$Crab/AnimatedSprite2D.play("neutral")
+	$Crab.call_deferred("_start_game")
 	$Crab.position = $spawn_point.position
-	$Crab.call_deferred("move_and_slide")
-	$Crab.is_start_fall = true
 	$Crab/player_timer.start()
 	await $Crab/player_timer.timeout
 	_should_clamp = true

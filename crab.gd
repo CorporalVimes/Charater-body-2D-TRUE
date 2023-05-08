@@ -8,10 +8,12 @@ const JUMP_VELOCITY = -600.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var health
+var defalt_health = 2
 var lives
 var number_of_jumps
 var is_head_squished
 var is_start_fall
+var xdirection = 1
 @export var is_actionable = false
 
 func _ready():
@@ -22,6 +24,17 @@ func _ready():
 	lives = 3
 	$AnimatedSprite2D.play("neutral")
 
+func _start_game():
+	self.set_physics_process(true)
+	self.set_process(true)
+	self.visible = true
+	self.set_deferred("is_actionable",true)
+	self.set_deferred("health", defalt_health)
+	$AnimatedSprite2D.play("neutral")
+	self.call_deferred("move_and_slide")
+	self.is_start_fall = true
+	pass
+
 func _physics_process(delta):
 	
 	#code to disable input in certian cases like spawning
@@ -31,6 +44,10 @@ func _physics_process(delta):
 		is_actionable = true
 		is_start_fall = false
 	
+	if velocity.x > 0:
+		xdirection = 1
+	elif velocity.x < 0:
+		xdirection = -1
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -110,24 +127,20 @@ func _death():
 
 #FUNC FOR WHEN PLAYER *GETS* ATTACKED
 func _attack():
-	print(velocity.x)
-	var directionX = velocity.x/abs(velocity.x)
-	print(directionX," direction")
+	print(xdirection)
 	health-=1
 	$player_timer.start()
 	self.set_physics_process(false)
 	self.set_process(false)
 	is_actionable = false
-	print(is_actionable," is action")
 	$AnimatedSprite2D.play("hurt")
 	await $player_timer.timeout
 	if health > 0:
-		velocity= Vector2(-2500 * directionX,-1)
+		velocity= Vector2(-2500 * xdirection,-1)
 		self.set_physics_process(true)
 		$AnimatedSprite2D.play("hurt_pushback")
 		$player_timer.start()
 		await $player_timer.timeout
-		print(is_actionable," is action")
 		self.set_process(true)
 		is_actionable = true
 	else:
@@ -135,8 +148,6 @@ func _attack():
 	#iewport = get_viewport()
 	#iewport.
 	
-
-	print(velocity.x)
 	pass # Replace with function body.
 
 
