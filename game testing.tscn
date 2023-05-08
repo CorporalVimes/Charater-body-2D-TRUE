@@ -77,10 +77,10 @@ position = Vector2(1080, 680)
 position = Vector2(1160, 680)
 
 [node name="floor16" parent="floor container" instance=ExtResource("1_t2nc8")]
-position = Vector2(1240, 680)
+position = Vector2(1240, 600)
 
 [node name="floor17" parent="floor container" instance=ExtResource("1_t2nc8")]
-position = Vector2(1320, 680)
+position = Vector2(1320, 640)
 
 [node name="floor18" parent="floor container" instance=ExtResource("1_t2nc8")]
 position = Vector2(1400, 680)
@@ -188,10 +188,10 @@ position = Vector2(4040, 680)
 position = Vector2(4120, 680)
 
 [node name="Breakable Block" parent="." instance=ExtResource("5_2ulqy")]
-position = Vector2(720, 280)
+position = Vector2(40.0001, 280)
 
 [node name="Breakable Block2" parent="." instance=ExtResource("5_2ulqy")]
-position = Vector2(200, 280)
+position = Vector2(480, 360)
 
 [node name="spawn_point" parent="." instance=ExtResource("7_sn51j")]
 position = Vector2(480, 280)
