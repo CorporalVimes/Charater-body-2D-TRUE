@@ -15,7 +15,7 @@ Crab_scene = ExtResource("2_u4fb6")
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_pufpo")]
-position = Vector2(320, 520)
+position = Vector2(280, 560)
 
 [node name="Enemy2" parent="." instance=ExtResource("6_pufpo")]
 position = Vector2(920, 560)

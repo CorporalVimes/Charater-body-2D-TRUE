@@ -1,18 +1,19 @@
-extends RigidBody2D
+extends CharacterBody2D
 signal _death_push
 signal _attack()
 signal send_score()
-var direction
+var direction = -1
+var speed = 50000
 var score = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play("walk")
-	direction = -1
-	pass # Replace with function body.
 
+func _process(delta):
+	velocity.x = speed * delta * direction
+	print(velocity)
 	pass
-
 
 func _on_attack_body_entered(body):
 	print(body)
@@ -36,4 +37,9 @@ func _on_hit_area_entered(area):
 	$AnimatedSprite2D.play("death")
 	await $mob_Timer.timeout
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_walk_timer_timeout():
+
 	pass # Replace with function body.
