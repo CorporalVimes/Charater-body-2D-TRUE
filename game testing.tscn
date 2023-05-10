@@ -10,7 +10,7 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lvqhk")
-Crab_scene = ExtResource("2_u4fb6")
+enemy_scene = ExtResource("6_pufpo")
 
 [node name="HUD" parent="." instance=ExtResource("5_r8tya")]
 

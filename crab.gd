@@ -120,14 +120,13 @@ func _death():
 	if not lives < 0:
 		emit_signal("dead")
 		
-		print(lives)
-		print(health)
+		print("lives:",lives)
+		print("health:",health)
 	else:
 		emit_signal("game_over")
 
 #FUNC FOR WHEN PLAYER *GETS* ATTACKED
-func _attack():
-	print(xdirection)
+func _attack(ePos):
 	health-=1
 	$player_timer.start()
 	self.set_physics_process(false)
@@ -136,7 +135,7 @@ func _attack():
 	$AnimatedSprite2D.play("hurt")
 	await $player_timer.timeout
 	if health > 0:
-		velocity= Vector2(-2500 * xdirection,-1)
+		velocity = (ePos - position) * -25
 		self.set_physics_process(true)
 		$AnimatedSprite2D.play("hurt_pushback")
 		$player_timer.start()
@@ -153,7 +152,6 @@ func _attack():
 
 func _on_head_squish_area_entered(area):
 	# only exist to make head squished when head bonked
-	print("head squished")
 	if not is_on_floor():
 		is_head_squished = true
 	pass # Replace with function body.

@@ -1,5 +1,5 @@
 extends Node2D
-@export var Crab_scene:PackedScene
+@export var enemy_scene:PackedScene
 var screen_center = Vector2.ZERO
 var screen_size = Vector2.ZERO
 var _should_clamp = false
@@ -9,11 +9,12 @@ func start_game():
 	$Crab.call_deferred("_start_game")
 	$Crab.position = $spawn_point.position
 	$Crab.set_deferred("lives", 3)
+	var enemy =enemy_scene.instantiate()
+	add_child(enemy)
 	$Camera2D.make_current()
 	$Camera2D.position_smoothing_enabled = true
 	$Camera2D.position = Vector2.ZERO
 	_should_clamp = true
-	print($Crab.position)
 	
 
 func _process(delta):
@@ -40,10 +41,9 @@ func _reset_game():
 	await $Crab/player_timer.timeout
 	_should_clamp = true
 	$Camera2D.position_smoothing_enabled = true
-	print($Camera2D.position)
-	print($Crab.position)
 
 func _on_crab_dead():
+	$HUD.call_deferred("_death_info",$Crab.lives)
 	$Camera2D.position.x = 0
 	_should_clamp = false
 	$Camera2D.position_smoothing_enabled = false

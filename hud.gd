@@ -16,6 +16,8 @@ func game_over():
 	$messageLabel.show()
 	$messageLabel.text = "game over"
 
+func _death_info(lives):
+	$death_screen.text = "B - " + str(lives)
 
 func _on_button_pressed():
 	$Button.hide()

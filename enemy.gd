@@ -5,7 +5,7 @@ signal send_score()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction = -1
-var speed = 200
+var speed = 7000
 var score = 500
 var _was_on_wall = false
 
@@ -17,24 +17,26 @@ func _ready():
 
 
 func _physics_process(delta):
-	
 		#now with new GRAVITY
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	velocity.x += speed * delta * direction
+	velocity.x = speed * delta * direction
 	if is_on_wall() and not _was_on_wall:
 		direction *= -1
 		_was_on_wall = true
 	else:
 		_was_on_wall = false
+	#ANIMATION
+	if velocity.x != 0:
+		$AnimatedSprite2D.flip_h = velocity.x > 0
+		
 	move_and_slide()
 
 func _on_attack_body_entered(body):
-	print(body)
 	$mob_Timer.start()
 	$AnimatedSprite2D.play("attack")
-	emit_signal("_attack")
+	emit_signal("_attack", position)
 	$hit/CollisionShape2D.set_deferred("disabled",true)
 	self.set_physics_process(false)
 	await $mob_Timer.timeout
